@@ -39,7 +39,7 @@ void set_background_color(const vga_ball_color_t *c)
       return;
   }
 }
-
+int i;
 int main()
 {
   vga_ball_arg_t vla;
