@@ -79,7 +79,7 @@ int main()
   int dx = 5;
   int dy = 4;
 
-  while(i < 2000 ){
+  while(i < 1000 ){
     
     background.x = x / 5;
     background.y = y / 4;
