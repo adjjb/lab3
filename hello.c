@@ -78,7 +78,7 @@ int main()
   int dx = 5;
   int dy = 4;
 
-  while(int count =0; count < 200;count ++ ){
+  while(i =0; i < 200;i ++ ){
     
     item.x = x / 5;
     item.y = y / 4;
