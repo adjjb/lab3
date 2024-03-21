@@ -43,7 +43,7 @@ void set_background_color(const vga_ball_color_t *c)
 int main()
 {
   vga_ball_arg_t vla;
-  int i;
+  int i = 0;
   static const char filename[] = "/dev/vga_ball";
 
   static const vga_ball_color_t colors[] = {
@@ -78,7 +78,7 @@ int main()
   int dx = 5;
   int dy = 4;
 
-  while(i =0; i < 200;i ++ ){
+  while(i <200 ){
     
     item.x = x / 5;
     item.y = y / 4;
@@ -91,6 +91,8 @@ int main()
     else if(y < 50) dy = 4;
     if(x>1280-100) dx = -5;
     else if(x<100) dx = 5;
+
+    i ++;
   }
   /*for (i = 0 ; i < 24 ; i++) {
     set_background_color(&colors[i % COLORS ]);
