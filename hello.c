@@ -72,7 +72,6 @@ int main()
 
   printf("initial state: ");
   print_background_color();
-  item = colors[1];
   
   int offset = 50;
   int x = 200;
@@ -82,9 +81,9 @@ int main()
 
   while(i < 2000 ){
     
-    item.x = x / 5;
-    item.y = y / 4;
-    set_background_color(&item);
+    background.x = x / 5;
+    background.y = y / 4;
+    set_background_color(&background);
     print_background_color();
     usleep(4000*(480-offset)/32);
     x += dx;
