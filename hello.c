@@ -25,8 +25,8 @@ void print_background_color() {
       perror("ioctl(VGA_BALL_READ_BACKGROUND) failed");
       return;
   }
-  printf("%02x %02x %02x\n",
-	 vla.background.red, vla.background.green, vla.background.blue);
+  printf("%02x %02x %02x %02x %02x\n",
+	 vla.background.red, vla.background.green, vla.background.blue,vla.background.x,vla.background.y);
 }
 
 /* Set the background color */
@@ -39,7 +39,7 @@ void set_background_color(const vga_ball_color_t *c)
       return;
   }
 }
-int i;
+
 int main()
 {
   vga_ball_arg_t vla;
@@ -48,16 +48,17 @@ int main()
 
   static const vga_ball_color_t colors[] = {
     { 0xff, 0x00, 0x00,0x01,0x01 }, /* Red */
-    { 0x00, 0xff, 0x00,0x02,0x02 }, /* Green */
+    { 0x00, 0xff, 0x00,0x01,0x01 }, /* Green */
     { 0x00, 0x00, 0xff,0x01,0x01 }, /* Blue */
-    { 0xff, 0xff, 0x00,0x02,0x02 }, /* Yellow */
+    { 0xff, 0xff, 0x00,0x01,0x01 }, /* Yellow */
     { 0x00, 0xff, 0xff,0x01,0x01 }, /* Cyan */
-    { 0xff, 0x00, 0xff,0x02,0x02 }, /* Magenta */
+    { 0xff, 0x00, 0xff,0x01,0x01 }, /* Magenta */
     { 0x80, 0x80, 0x80,0x01,0x01 }, /* Gray */
-    { 0x00, 0x00, 0x00,0x02,0x02 }, /* Black */
+    { 0x00, 0x00, 0x00,0x01,0x01 }, /* Black */
     { 0xff, 0xff, 0xff,0x01,0x01 }  /* White */
   };
 
+  static vga_ball_color_t item;
 # define COLORS 9
 
   printf("VGA ball Userspace program started\n");
@@ -69,12 +70,36 @@ int main()
 
   printf("initial state: ");
   print_background_color();
+  item = colors[1];
 
-  for (i = 0 ; i < 24 ; i++) {
+    //set_background_color(&colors[3]);
+    //print_background_color();
+  
+  int offset = 50;
+  int x = 640;
+  int y = offset;
+  int dx = 5;
+  int dy = 4;
+
+  while(1){
+    
+    item.x = x / 5;
+    item.y = y / 4;
+    set_background_color(&item);
+    print_background_color();
+    usleep(4000*(480-y)/32);
+    x += dx;
+    y += dy;
+    if(y > 480 - 50) dy = -4;
+    else if(y < 50) dy = 4;
+    if(x>1280-100) dx = -5;
+    else if(x<100) dx = 5;
+  }
+  /*for (i = 0 ; i < 24 ; i++) {
     set_background_color(&colors[i % COLORS ]);
     print_background_color();
     usleep(400000);
-  }
+  }*/
   
   printf("VGA BALL Userspace program terminating\n");
   return 0;
