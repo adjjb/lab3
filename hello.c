@@ -47,14 +47,14 @@ int main()
   static const char filename[] = "/dev/vga_ball";
 
   static const vga_ball_color_t colors[] = {
+    { 0xff, 0xff, 0xff,0x00,0x00 },
     { 0xff, 0x00, 0x00,0x00,0x00 },
     { 0x00, 0xff, 0x00,0x00,0x00 }, 
     { 0x00, 0x00, 0xff,0x00,0x00 }, 
     { 0xff, 0xff, 0x00,0x00,0x00 }, 
     { 0x00, 0xff, 0xff,0x00,0x00 }, 
     { 0xff, 0x00, 0xff,0x00,0x00 }, 
-    { 0x80, 0x80, 0x80,0x00,0x00 }, 
-    { 0xff, 0xff, 0xff,0x00,0x00 } 
+    { 0x80, 0x80, 0x80,0x00,0x00 }
   };
 
   static vga_ball_color_t background ;
@@ -87,24 +87,24 @@ int main()
     usleep(50000);
     x += dx;
     y += dy;
-    if(y > 480 - 50){
+    if(y > 480 - 40){
 	dy = -4;
 	background = colors[color_num%8+1];
 	color_num ++;
     }
 
-    else if(y < 50){
+    else if(y < 40){
 	dy = 4;
 	background = colors[color_num%8+1];
 	color_num ++;
     }
 
-    if(x>1280-100) {
+    if(x>1280-120) {
 	dx = -5;
 	background = colors[color_num%8+1];
 	color_num ++;
     }
-    else if(x<100) {
+    else if(x<120) {
 	dx = 5;
 	background = colors[color_num%8+1];
 	color_num ++;
