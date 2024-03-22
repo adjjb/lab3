@@ -86,26 +86,19 @@ int main()
     usleep(50000);
     x += dx;
     y += dy;
-    if(y > 480 - 50) 
-    begin
+    if(y > 480 - 50)
 	dy = -4;
 	background = colors[i%8+1];
-    end
+    
     else if(y < 50)
-    begin
 	dy = 4;
 	background = colors[i%8+1];
-    end;
     if(x>1280-100) 
-    begin
 	dx = -5;
 	background = colors[i%8+1];
-    end;
     else if(x<100) 
-    begin
 	dx = 5;
 	background = colors[i%8+1];
-    end;
 
     i ++;
   }
