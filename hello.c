@@ -99,12 +99,12 @@ int main()
 	color_num ++;
     }
 
-    if(x>1280-78) {
+    if(x>1280-80) {
 	dx = -5;
 	background = colors[color_num%8+1];
 	color_num ++;
     }
-    else if(x<75) {
+    else if(x<78) {
 	dx = 5;
 	background = colors[color_num%8+1];
 	color_num ++;
