@@ -87,24 +87,24 @@ int main()
     usleep(50000);
     x += dx;
     y += dy;
-    if(y > 480 - 40){
+    if(y > 480 - 42){
 	dy = -4;
 	background = colors[color_num%8+1];
 	color_num ++;
     }
 
-    else if(y < 40){
+    else if(y < 42){
 	dy = 4;
 	background = colors[color_num%8+1];
 	color_num ++;
     }
 
-    if(x>1280-80) {
+    if(x>1280-78) {
 	dx = -5;
 	background = colors[color_num%8+1];
 	color_num ++;
     }
-    else if(x<80) {
+    else if(x<78) {
 	dx = 5;
 	background = colors[color_num%8+1];
 	color_num ++;
