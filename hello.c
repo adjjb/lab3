@@ -104,7 +104,7 @@ int main()
 	background = colors[color_num%8+1];
 	color_num ++;
     }
-    else if(x<78) {
+    else if(x<75) {
 	dx = 5;
 	background = colors[color_num%8+1];
 	color_num ++;
