@@ -76,7 +76,7 @@ int main()
   int dx = 5;
   int dy = 4;
 
-  int color_num = 0;
+  int color_num = 1;
   background = colors[1];
   while(i < 500 ){
     
