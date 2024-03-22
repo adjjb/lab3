@@ -75,7 +75,8 @@ int main()
   int y = 160;
   int dx = 5;
   int dy = 4;
-	
+
+  int color_num = 0;
   background = colors[1];
   while(i < 500 ){
     
@@ -88,21 +89,25 @@ int main()
     y += dy;
     if(y > 480 - 50){
 	dy = -4;
-	background = colors[i%8+1];
+	background = colors[color_num%8+1];
+	color_num ++;
     }
 
     else if(y < 50){
 	dy = 4;
-	background = colors[i%8+1];
+	background = colors[color_num%8+1];
+	color_num ++;
     }
 
     if(x>1280-100) {
 	dx = -5;
-	background = colors[i%8+1];
+	background = colors[color_num%8+1];
+	color_num ++;
     }
     else if(x<100) {
 	dx = 5;
-	background = colors[i%8+1];
+	background = colors[color_num%8+1];
+	color_num ++;
     }
 
     i ++;
