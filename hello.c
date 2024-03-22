@@ -77,13 +77,13 @@ int main()
   int dy = 4;
 	
   background = colors[1]
-  while(i < 1000 ){
+  while(i < 500 ){
     
     background.x = x / 5;
     background.y = y / 4;
     set_background_color(&background);
     print_background_color();
-    usleep(4000*(480-offset)/32);
+    usleep(50000);
     x += dx;
     y += dy;
     if(y > 480 - 50) 
