@@ -90,7 +90,7 @@ int main()
     begin
 	dy = -4;
 	background = colors[i%8+1];
-    end;
+    end
     else if(y < 50)
     begin
 	dy = 4;
