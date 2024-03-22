@@ -78,7 +78,7 @@ int main()
 
   int color_num = 1;
   background = colors[1];
-  while(i < 500 ){
+  while(i < 5000 ){
     
     background.x = x / 5;
     background.y = y / 4;
