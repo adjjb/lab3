@@ -57,7 +57,7 @@ int main()
     { 0xff, 0xff, 0xff,0x00,0x00 } 
   };
 
-  static vga_ball_color_t background 
+  static vga_ball_color_t background ;
 # define COLORS 9
 
   printf("VGA ball Userspace program started\n");
