@@ -46,7 +46,7 @@ int main()
   int i = 0;
   static const char filename[] = "/dev/vga_ball";
 
-  /*static const vga_ball_color_t colors[] = {
+  static const vga_ball_color_t colors[] = {
     { 0xff, 0x00, 0x00,0x00,0x00 },
     { 0x00, 0xff, 0x00,0x00,0x00 }, 
     { 0x00, 0x00, 0xff,0x00,0x00 }, 
@@ -54,13 +54,10 @@ int main()
     { 0x00, 0xff, 0xff,0x00,0x00 }, 
     { 0xff, 0x00, 0xff,0x00,0x00 }, 
     { 0x80, 0x80, 0x80,0x00,0x00 }, 
-    { 0x00, 0x00, 0x00,0x00,0x00 }, 
     { 0xff, 0xff, 0xff,0x00,0x00 } 
-  };*/
-
-  static vga_ball_color_t background = {
-	0xff,0xff,0xff,0x00,0x00
   };
+
+  static vga_ball_color_t background 
 # define COLORS 9
 
   printf("VGA ball Userspace program started\n");
@@ -78,7 +75,8 @@ int main()
   int y = 160;
   int dx = 5;
   int dy = 4;
-
+	
+  background = colors[1]
   while(i < 1000 ){
     
     background.x = x / 5;
@@ -88,10 +86,26 @@ int main()
     usleep(4000*(480-offset)/32);
     x += dx;
     y += dy;
-    if(y > 480 - 50) dy = -4;
-    else if(y < 50) dy = 4;
-    if(x>1280-100) dx = -5;
-    else if(x<100) dx = 5;
+    if(y > 480 - 50) 
+    begin
+	dy = -4;
+	background = colors[i%8+1];
+    end;
+    else if(y < 50)
+    begin
+	dy = 4;
+	background = colors[i%8+1];
+    end;
+    if(x>1280-100) 
+    begin
+	dx = -5;
+	background = colors[i%8+1];
+    end;
+    else if(x<100) 
+    begin
+	dx = 5;
+	background = colors[i%8+1];
+    end;
 
     i ++;
   }
